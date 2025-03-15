@@ -1,26 +1,38 @@
-📦 AZ Suite Proof - Full Stack Developer Challenge
-📌 Sobre o Projeto
-Este projeto foi desenvolvido como parte do processo seletivo para a vaga de Desenvolvedor Full Stack Pleno na AZAPE.CO. A aplicação permite o acompanhamento de pedidos e valores recebidos através de outra plataforma, acessando os dados via uma API REST desenvolvida para este projeto.
+# 📦 AZ Suite Proof - Full Stack Developer Challenge  
 
-A aplicação é baseada no layout do Figma fornecido e segue princípios de Clean Code para garantir um código organizado e escalável.
+## 📌 Sobre o Projeto  
+Este projeto foi desenvolvido como parte do processo seletivo para a vaga de **Desenvolvedor Full Stack Pleno** na **AZAPE.CO**.  
 
-📜 Funcionalidades
-🔐 Login
-Tela inicial de autenticação com campos de email e senha
-Validação dos dados via API
-Redirecionamento para o Dashboard
-Tratamento de erros em caso de credenciais inválidas
-📊 Dashboard
-Card de Pedidos: Exibe o número total de pedidos e o valor total em R$
-Card de Vendas: Exibe o número de pedidos pagos e o valor total em R$
-Card de Ticket Médio: Exibe o valor médio das vendas
-Lista de Pedidos:
-ID do Pedido
-ID da Loja
-Data de Criação
-Nome do Cliente
-CPF do Cliente
-Status do Pedido
-Status do Pagamento
-Método de Pagamento
-Total em R$
+A aplicação permite o **acompanhamento de pedidos e valores recebidos** através de outra plataforma, acessando esses dados por meio de uma **API REST** desenvolvida para o projeto.  
+
+A interface foi construída com base no **layout do Figma** fornecido, seguindo os princípios de **Clean Code** para garantir um código **organizado, escalável e de fácil manutenção**.  
+
+---
+
+## 📜 Funcionalidades  
+
+### 🔐 **Autenticação e Login**  
+- Página inicial com campos de **email e senha**.  
+- Validação dos dados via **API**.  
+- Redirecionamento para o **Dashboard** em caso de credenciais corretas.  
+- Exibição de mensagem de erro caso os dados estejam incorretos.  
+
+### 📊 **Dashboard**  
+O Dashboard exibe informações essenciais sobre os pedidos e vendas:  
+
+#### 📋 **Cards de Resumo**  
+- **📦 Pedidos**: Número total de pedidos cadastrados e o valor total em R$.  
+- **💰 Vendas**: Quantidade de pedidos pagos e o valor total em R$.  
+- **📊 Ticket Médio**: Cálculo do valor médio das vendas realizadas.  
+
+#### 📝 **Lista de Pedidos**  
+Cada pedido contém os seguintes detalhes:  
+- **ID do Pedido**  
+- **ID da Loja**  
+- **Data de Criação**  
+- **Nome do Cliente**  
+- **CPF do Cliente**  
+- **Status do Pedido**  
+- **Status do Pagamento**  
+- **Método de Pagamento**  
+- **Total em R$**  
