@@ -76,6 +76,9 @@
       gap: 8px;
       
       .input{
+        position: relative;
+        margin-bottom: 16px;
+        
         p{
           color: #FE7C6E;
           font-weight: 700;
@@ -102,18 +105,49 @@
             outline: none;
             border-color: #aaa;
           }
+          
+          &.error-input {
+            border-color: #ff3b30;
+            background-color: rgba(255, 59, 48, 0.05);
+          }
+        }
+        
+        .error-message {
+          color: #ff3b30;
+          font-size: 12px;
+          margin-top: 4px;
+          display: block;
         }
       }
     }
 
-    p{
-      color: #FE7C6E;
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 150%;
-      letter-spacing: 0;
-      margin: 10px 0 20px;
-      cursor: pointer;
+    .password-options {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 15px;
+      
+      .forgot-password {
+        color: #FE7C6E;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 150%;
+        letter-spacing: 0;
+        cursor: pointer;
+        margin: 0;
+      }
+    }
+    
+    .error-container {
+      background-color: rgba(255, 59, 48, 0.1);
+      border-radius: 4px;
+      padding: 8px 12px;
+      margin-bottom: 15px;
+      
+      .error-message {
+        color: #ff3b30;
+        font-size: 12px;
+        font-weight: 500;
+      }
     }
 
     button {
@@ -125,6 +159,11 @@
       color: white;
       cursor: pointer;
       font-weight: 500;
+      
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
     }
 
     img{
@@ -147,7 +186,7 @@
         }
       }
       
-      p {
+      .password-options .forgot-password {
         font-size: 14px;
       }
       
