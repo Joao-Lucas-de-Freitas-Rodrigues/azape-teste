@@ -1,0 +1,103 @@
+<div class="container">
+
+    <div class="main-content">
+
+      <h1 class="page-title">Resumo dos pedidos</h1>
+  
+      <div *ngIf="isLoading" class="loading-state">
+        <p>Carregando dados...</p>
+      </div>
+  
+      <div *ngIf="errorMessage" class="error-state">
+        <p>{{ errorMessage }}</p>
+        <button (click)="loadDashboardData()">Tentar novamente</button>
+      </div>
+  
+      <div *ngIf="dashboardData && !isLoading" class="stat-cards">
+        <div class="stat-card">
+          <img src="assets/dashboard/pedidos.svg" alt="Pedidos" />
+          <div class="stat-card-title">{{ dashboardData.orders_count }} Pedidos</div>
+          <div class="stat-card-value">R$ {{ dashboardData.orders_total.toFixed(2).replace('.', ',') }}</div>
+        </div>
+        <div class="stat-card">
+          <img src="assets/dashboard/vendas.svg" alt="Vendas" />
+          <div class="stat-card-title">{{ dashboardData.sales_count }} Vendas</div>
+          <div class="stat-card-value">R$ {{ dashboardData.sales_total.toFixed(2).replace('.', ',') }}</div>
+        </div>
+        <div class="stat-card">
+          <img src="assets/dashboard/ticket_medio.svg" alt="Ticket Medio" />
+          <div class="stat-card-title">Ticket médio</div>
+          <div class="stat-card-value">R$ {{ dashboardData.average_ticket.toFixed(2).replace('.', ',') }}</div>
+        </div>
+      </div>
+  
+      <div *ngIf="dashboardData && !isLoading" class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID do Pedido</th>
+              <th>ID na Loja</th>
+              <th>Criação</th>
+              <th>Nome do cliente</th>
+              <th>CPF/CNPJ do cliente</th>
+              <th>Status do pedido</th>
+              <th>Status do pagamento</th>
+              <th>Método de pagamento</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of dashboardData.orders">
+              <td>#{{ order._id }}</td>
+              <td>#{{ order._id }}</td>
+              <td>{{ formatDate(order.createdAt) }}</td>
+              <td>{{ order.customer.name }}</td>
+              <td>{{ formatCpfCnpj(order.customer.doc)}}</td>
+              <td>{{ formatOrderStatus(order.status) }}</td>
+              <td>{{ order.payment.status }}</td>
+              <td>{{ formatPaymentMethod(order.payment.method) }}</td>
+              <td>R$ {{ order.payment.amount.toFixed(2).replace('.', ',') }}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <div class="pagination-container">
+          <div class="pagination">
+            <div class="pagination-item" (click)="onPageChange(1)"> 
+              <img src="assets/dashboard/pagination/seta_dupla_esquerda.svg" alt="Primeira página">
+            </div>
+            <div class="pagination-item" (click)="currentPage > 1 && onPageChange(currentPage - 1)">
+              <img src="assets/dashboard/pagination/seta_esquerda.svg" alt="Voltar página">
+            </div>
+            
+            <ng-container *ngFor="let page of [].constructor(dashboardData.total_pages); let i = index">
+              <div 
+                class="pagination-item" 
+                [ngClass]="{'active': currentPage === i + 1}"
+                (click)="onPageChange(i + 1)"
+              >
+                {{ i + 1 }}
+              </div>
+            </ng-container>
+            
+            <div class="pagination-item" (click)="currentPage < dashboardData.total_pages && onPageChange(currentPage + 1)">
+              <img src="assets/dashboard/pagination/seta_direita.svg" alt="Avançar página">
+            </div>
+            <div class="pagination-item" (click)="onPageChange(dashboardData.total_pages)">
+              <img src="assets/dashboard/pagination/seta_dupla_direita.svg" alt="Avançar página">
+            </div>
+          </div>
+          <div class="pagination-info">{{ currentPage }} de {{ dashboardData.total_pages }} páginas</div>
+          <div class="lines-per-page">
+            <span>Linhas por página</span>
+            <select (change)="onItemsPerPageChange($event)">
+              <option [selected]="itemsPerPage === 5" value="5">5</option>
+              <option [selected]="itemsPerPage === 10" value="10">10</option>
+              <option [selected]="itemsPerPage === 20" value="20">20</option>
+              <option [selected]="itemsPerPage === 50" value="50">50</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
