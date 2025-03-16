@@ -5,6 +5,6 @@
     <div class="container">
         <app-navbar *ngIf="showNavbar"></app-navbar>
         <router-outlet></router-outlet>
-        <app-page-footer></app-page-footer>
+        <app-page-footer *ngIf="showNavbar"></app-page-footer>
     </div>
 </div>
