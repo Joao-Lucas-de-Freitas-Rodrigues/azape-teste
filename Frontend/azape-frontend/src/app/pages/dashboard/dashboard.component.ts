@@ -90,6 +90,22 @@ export class DashboardComponent implements OnInit {
     return document;
   }
 
+  formatPaymentStatus(status: string): string {
+    const statusMap: { [key: string]: string } = {
+      'succeeded': 'Aprovado',
+      'pending': 'Pendente'
+    };
+  
+    return statusMap[status.toLowerCase()] || status;
+  }
+
+  formatMoney(amount: number): string {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(amount);
+  }
+
   onPageChange(page: number): void {
     this.currentPage = page;
     this.loadDashboardData();
