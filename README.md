@@ -35,4 +35,65 @@ Cada pedido contém os seguintes detalhes:
 - **Status do Pedido**  
 - **Status do Pagamento**  
 - **Método de Pagamento**  
-- **Total em R$**  
+- **Total em R$**
+
+#### 📌 Passos:
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/Joao-Lucas-de-Freitas-Rodrigues/azape-teste.git
+   ```
+2. **Acesse o diretório do front-end:**
+   ```bash
+   cd azape-teste/frontend
+   ```
+3. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+4. **Inicie o projeto:**
+   ```bash
+   npm start
+   ```
+
+### 🛠️ Rodando o Back-End (Node.js/Express + MongoDB)
+
+#### 📌 Passos:
+1. **Clone o repositório (caso ainda não tenha feito):**
+   ```bash
+   git clone https://github.com/Joao-Lucas-de-Freitas-Rodrigues/azape-teste.git
+   ```
+2. **Acesse o diretório do back-end:**
+   ```bash
+   cd azape-teste/backend
+   ```
+3. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+4. **Inicie o servidor:**
+   ```bash
+   npm start
+   ```
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+### Front-End:
+- **Angular**
+- **TypeScript**
+- **RxJS**
+- **SCSS**
+
+### Back-End:
+- **Node.js**
+- **Express**
+- **MongoDB** com **Mongoose**
+- **JWT (JSON Web Tokens)**
+- **bcrypt.js** (criptografia de senha)
+
+---
+
+## 🔧 Configuração do Ambiente
+
+- Certifique-se de ter o **Node.js** e o **npm** instalados em sua máquina.
