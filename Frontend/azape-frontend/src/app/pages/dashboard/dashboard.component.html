@@ -17,17 +17,17 @@
         <div class="stat-card">
           <img src="assets/dashboard/pedidos.svg" alt="Pedidos" />
           <div class="stat-card-title">{{ dashboardData.orders_count }} Pedidos</div>
-          <div class="stat-card-value">R$ {{ dashboardData.orders_total.toFixed(2).replace('.', ',') }}</div>
+          <div class="stat-card-value">{{ formatMoney(dashboardData.orders_total)}}</div>
         </div>
         <div class="stat-card">
           <img src="assets/dashboard/vendas.svg" alt="Vendas" />
           <div class="stat-card-title">{{ dashboardData.sales_count }} Vendas</div>
-          <div class="stat-card-value">R$ {{ dashboardData.sales_total.toFixed(2).replace('.', ',') }}</div>
+          <div class="stat-card-value">{{ formatMoney(dashboardData.sales_total) }}</div>
         </div>
         <div class="stat-card">
           <img src="assets/dashboard/ticket_medio.svg" alt="Ticket Medio" />
           <div class="stat-card-title">Ticket médio</div>
-          <div class="stat-card-value">R$ {{ dashboardData.average_ticket.toFixed(2).replace('.', ',') }}</div>
+          <div class="stat-card-value">{{ formatMoney(dashboardData.average_ticket) }}</div>
         </div>
       </div>
   
@@ -54,9 +54,9 @@
               <td>{{ order.customer.name }}</td>
               <td>{{ formatCpfCnpj(order.customer.doc)}}</td>
               <td>{{ formatOrderStatus(order.status) }}</td>
-              <td>{{ order.payment.status }}</td>
+              <td>{{ formatPaymentStatus(order.payment.status) }}</td>
               <td>{{ formatPaymentMethod(order.payment.method) }}</td>
-              <td>R$ {{ order.payment.amount.toFixed(2).replace('.', ',') }}</td>
+              <td>{{ formatMoney(order.payment.amount) }}</td>
             </tr>
           </tbody>
         </table>
