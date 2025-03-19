@@ -72,7 +72,7 @@ Cada pedido contém os seguintes detalhes:
    ```
 4. **Inicie o servidor:**
    ```bash
-   npm start
+   npm run dev
    ```
 
 ---
